@@ -1,6 +1,5 @@
-import type { Nolytics } from "./schema";
-
+import type { Nolytics } from './schema';
 
 export default function (): Promise<Nolytics> {
-    return fetch('json/nolytics.json').then((x) => x.json());
+	return fetch('json/nolytics.json').then((x) => x.json());
 }
