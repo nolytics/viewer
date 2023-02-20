@@ -128,3 +128,6 @@ $RECYCLE.BIN/
 # also ignore any .txt files
 
 *.txt
+
+# ignore dev nolytics.json
+static/json/nolytics.json
