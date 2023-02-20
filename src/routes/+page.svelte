@@ -1,2 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { PageHitCountTable } from '@components';
+	import { NolyticsStore } from '@stores';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		NolyticsStore.read();
+	});
+</script>
+
+<body>
+	{#if $NolyticsStore.success}
+		<PageHitCountTable hits={$NolyticsStore.value.hitsSummary} />
+	{/if}
+</body>
