@@ -6,9 +6,12 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		alias: {
+			'@components': path.resolve('./src/lib/components/index.ts'),
+			'@stores': path.resolve('./src/lib/stores/index.ts'),
+		},
 	}
 };
 
