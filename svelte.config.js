@@ -8,15 +8,13 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter(
-			{
-				pages: 'build',
-				assets: 'build',
-				fallback: null,
-				precompress: false,
-				strict: true
-			},
-		),
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: null,
+			precompress: false,
+			strict: true
+		}),
 		alias: {
 			'@components': path.resolve('./src/lib/components/index.ts'),
 			'@stores': path.resolve('./src/lib/stores/index.ts'),
