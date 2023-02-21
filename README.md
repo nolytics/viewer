@@ -32,7 +32,7 @@ You can preview the production build with `npm run preview`.
 
 You can deploy viewer on GitHub Pages:
 
-gh_pages_repo_url=<repo url>
+gh_pages_repo_url="https://github.com/..."
 
 ```bash
 npm run build && touch build/.nojekyll && rm build/json/nolytics.json && npx gh-pages -d build -b master -r $gh_pages_repo_url -t true
