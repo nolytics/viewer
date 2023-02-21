@@ -35,5 +35,5 @@ You can deploy viewer on GitHub Pages:
 gh_pages_repo_url=<repo url>
 
 ```bash
-npm run build && touch build/.nojekyll && npx gh-pages -d build -b master -r $gh_pages_repo_url -t true
+npm run build && touch build/.nojekyll && rm build/json/nolytics.json && npx gh-pages -d build -b master -r $gh_pages_repo_url -t true
 ```
