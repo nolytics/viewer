@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"chart.js": "^4.2.1",
 		"rippleui": "^1.9.0"
 	}
 }
