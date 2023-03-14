@@ -1,4 +1,4 @@
-import { read, sort, type Nolytics } from '@data';
+import { read, type Nolytics } from '@data';
 import { createStore, onLoading, setSuccess } from './store';
 
 export const NolyticsStore = createNolyticsStore();
@@ -9,6 +9,6 @@ function createNolyticsStore() {
 
 	return {
 		subscribe,
-		read: () => onLoading(store, () => read().then((x) => setSuccess(store, sort(x))))
+		read: () => onLoading(store, () => read().then((x) => setSuccess(store, x)))
 	};
 }
