@@ -1,5 +1,5 @@
 import type { VisitorsSummary } from '@data';
-import type { ChartConfiguration, ChartData } from 'chart.js';
+import type { ChartConfiguration, ChartData, ChartItem, ChartType, LabelItem, TooltipItem } from 'chart.js';
 
 export function visitorsPercentageSummaryPieChartConfig(
 	summary: VisitorsSummary
@@ -13,12 +13,25 @@ export function visitorsPercentageSummaryPieChartConfig(
 				hoverOffset: 41,
 				borderRadius: 5
 			}
-		]
+		],
 	};
 
 	const config = <ChartConfiguration>{
 		type: 'doughnut',
-		data: data
+		data: data,
+		options: {
+			plugins: {
+				tooltip: {
+					callbacks: {
+						label: function (item: TooltipItem<ChartType>) {
+							const percentage = item.dataset.data[item.dataIndex] as number;
+
+							return `${(percentage * 100).toFixed()}%`;
+						}
+					}
+				}
+			}
+		},
 	};
 
 	return config;
