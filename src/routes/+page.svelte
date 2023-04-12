@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { MetadataHeader, PageHitCountTable } from '@components';
+	import {
+		MetadataHeader,
+		PageHitCountTable,
+		VisitorsPercentageSummaryBarChart
+	} from '@components';
 	import { NolyticsStore } from '@stores';
 	import { onMount } from 'svelte';
 
@@ -9,12 +13,13 @@
 </script>
 
 <body>
-	<div class="text-center">
-		{#if $NolyticsStore.success}
-			<MetadataHeader value={$NolyticsStore.value.metadata} />
-		{/if}
-	</div>
 	{#if $NolyticsStore.success}
+		<MetadataHeader value={$NolyticsStore.value.metadata} />
+
+		<div class="flex flex-row justify-center">
+			<VisitorsPercentageSummaryBarChart value={$NolyticsStore.value.visitorsSummary} />
+		</div>
+
 		<PageHitCountTable hits={$NolyticsStore.value.hitsSummary} />
 	{/if}
 </body>
