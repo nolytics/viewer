@@ -1,1 +1,1 @@
-export { default as VisitorsPercentageSummaryPieChart } from './visitors_percentage_summary_pie_chart.svelte';
+export { default as VisitorsPercentageSummaryBarChart } from './visitors_percentage_summary_bar_chart.svelte';

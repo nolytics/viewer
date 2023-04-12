@@ -10,14 +10,14 @@
 		DoughnutController
 	} from 'chart.js';
 	import { onMount } from 'svelte';
-	import { visitorsPercentageSummaryPieChartConfig } from './config';
+	import { visitorsPercentageSummaryBarChartConfig } from './config';
 
 	Chart.register(DoughnutController, Title, Tooltip, Legend, ArcElement, CategoryScale);
 
 	export let value: VisitorsSummary;
-	const id = 'visitors-percentage-summary-pie-chart';
+	const id = 'visitors-percentage-summary-bar-chart';
 
-	onMount(() => new Chart(id, visitorsPercentageSummaryPieChartConfig(value)));
+	onMount(() => new Chart(id, visitorsPercentageSummaryBarChartConfig(value)));
 </script>
 
 <div class="overflow-hidden text-center h-fit">
