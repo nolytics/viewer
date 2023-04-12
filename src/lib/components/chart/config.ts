@@ -4,32 +4,69 @@ import type { ChartConfiguration, ChartData, ChartType, TooltipItem } from 'char
 export function visitorsPercentageSummaryBarChartConfig(
 	summary: VisitorsSummary
 ): ChartConfiguration {
+	const stackedSummary = [
+		{
+			count: summary.allMobileVisitorsCount,
+			percentage: summary.allMobileVisitorsPercentage,
+		},
+		{
+			count: summary.allNonMobileVisitorsCount,
+			percentage: summary.allNonMobileVisitorsPercentage
+		},
+		{
+			count: summary.uniqueMobileVisitorsCount,
+			percentage: summary.uniqueMobileVisitorsPercentage,
+		},
+		{
+			count: summary.uniqueNonMobileVisitorsCount,
+			percentage: summary.uniqueNonMobileVisitorsPercentage,
+		}
+	];
+
 	const data = <ChartData>{
 		labels: ['Mobile', 'Non-Mobile'],
 		datasets: [
 			{
-				data: [summary.allMobileVisitorsPercentage, summary.allNonMobileVisitorsPercentage],
-				backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
+				data: stackedSummary.slice(0, 2).map((x) => x.percentage),
+				label: 'All',
+				backgroundColor: ['rgb(255, 99, 132)'],
 				hoverOffset: 41,
-				borderRadius: 5
+				borderRadius: 5,
+				stack: 'All',
+			},
+			{
+				data: stackedSummary.slice(2).map((x) => x.percentage),
+				label: 'Unique',
+				backgroundColor: ['rgb(54, 162, 235)'],
+				hoverOffset: 41,
+				borderRadius: 5,
+				stack: 'Unique',
 			}
 		],
 	};
 
 	const config = <ChartConfiguration>{
-		type: 'doughnut',
+		type: 'bar',
 		data: data,
 		options: {
+			scales: {
+				x: {
+					stacked: true,
+				},
+			},
 			plugins: {
 				tooltip: {
 					callbacks: {
 						label: function (item: TooltipItem<ChartType>) {
-							const percentage = item.dataset.data[item.dataIndex] as number;
+							const stackedIndex = item.dataIndex + (item.datasetIndex * 2);
 
-							return `${(percentage * 100).toFixed()}%`;
-						}
-					}
-				}
+							const percentage = (item.dataset.data[item.dataIndex] as number) * 100;
+							const count = stackedSummary[stackedIndex].count;
+
+							return `${percentage.toFixed()}% (${count})`;
+						},
+					},
+				},
 			}
 		},
 	};

@@ -2,17 +2,18 @@
 	import type { VisitorsSummary } from '@data';
 	import {
 		Chart,
-		ArcElement,
 		Title,
 		Tooltip,
 		Legend,
 		CategoryScale,
-		DoughnutController
+		BarController,
+		LinearScale,
+		BarElement
 	} from 'chart.js';
 	import { onMount } from 'svelte';
 	import { visitorsPercentageSummaryBarChartConfig } from './config';
 
-	Chart.register(DoughnutController, Title, Tooltip, Legend, ArcElement, CategoryScale);
+	Chart.register(BarController, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 	export let value: VisitorsSummary;
 	const id = 'visitors-percentage-summary-bar-chart';
@@ -21,6 +22,6 @@
 </script>
 
 <div class="overflow-hidden text-center h-fit">
-	Percentage of mobile vs non-mobile visitors
+	Percentage of mobile vs non-mobile visitors (all/unique page hits)
 	<canvas {id} />
 </div>
