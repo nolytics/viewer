@@ -7,7 +7,7 @@ export function visitorsPercentageSummaryBarChartConfig(
 	const stackedSummary = [
 		{
 			count: summary.allMobileVisitorsCount,
-			percentage: summary.allMobileVisitorsPercentage,
+			percentage: summary.allMobileVisitorsPercentage
 		},
 		{
 			count: summary.allNonMobileVisitorsCount,
@@ -15,11 +15,11 @@ export function visitorsPercentageSummaryBarChartConfig(
 		},
 		{
 			count: summary.uniqueMobileVisitorsCount,
-			percentage: summary.uniqueMobileVisitorsPercentage,
+			percentage: summary.uniqueMobileVisitorsPercentage
 		},
 		{
 			count: summary.uniqueNonMobileVisitorsCount,
-			percentage: summary.uniqueNonMobileVisitorsPercentage,
+			percentage: summary.uniqueNonMobileVisitorsPercentage
 		}
 	];
 
@@ -32,7 +32,7 @@ export function visitorsPercentageSummaryBarChartConfig(
 				backgroundColor: ['rgb(255, 99, 132)'],
 				hoverOffset: 41,
 				borderRadius: 5,
-				stack: 'All',
+				stack: 'All'
 			},
 			{
 				data: stackedSummary.slice(2).map((x) => x.percentage),
@@ -40,9 +40,9 @@ export function visitorsPercentageSummaryBarChartConfig(
 				backgroundColor: ['rgb(54, 162, 235)'],
 				hoverOffset: 41,
 				borderRadius: 5,
-				stack: 'Unique',
+				stack: 'Unique'
 			}
-		],
+		]
 	};
 
 	const config = <ChartConfiguration>{
@@ -51,24 +51,24 @@ export function visitorsPercentageSummaryBarChartConfig(
 		options: {
 			scales: {
 				x: {
-					stacked: true,
-				},
+					stacked: true
+				}
 			},
 			plugins: {
 				tooltip: {
 					callbacks: {
 						label: function (item: TooltipItem<ChartType>) {
-							const stackedIndex = item.dataIndex + (item.datasetIndex * 2);
+							const stackedIndex = item.dataIndex + item.datasetIndex * 2;
 
 							const percentage = (item.dataset.data[item.dataIndex] as number) * 100;
 							const count = stackedSummary[stackedIndex].count;
 
 							return `${percentage.toFixed()}% (${count})`;
-						},
-					},
-				},
+						}
+					}
+				}
 			}
-		},
+		}
 	};
 
 	return config;
