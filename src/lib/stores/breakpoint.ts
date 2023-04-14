@@ -17,17 +17,15 @@ function createBreakpointStore() {
 
 				setSuccess(store, breakpoint);
 
-				resizeListener = window.addEventListener(
-					'resize', () => {
-						const freshBreakpoint = currentBreakpoint();
+				resizeListener = window.addEventListener('resize', () => {
+					const freshBreakpoint = currentBreakpoint();
 
-						if (breakpoint != freshBreakpoint) {
-							breakpoint = freshBreakpoint;
+					if (breakpoint != freshBreakpoint) {
+						breakpoint = freshBreakpoint;
 
-							setSuccess(store, breakpoint);
-						}
+						setSuccess(store, breakpoint);
 					}
-				);
+				});
 			}
 		}
 	};

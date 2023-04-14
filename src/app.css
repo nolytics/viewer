@@ -2,33 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @screen sm {
-    .screen-resolver {
-        --type: 'sm'
-    }
+	.screen-resolver {
+		--type: 'sm';
+	}
 }
 
 @screen md {
-    .screen-resolver {
-        --type: 'md'
-    }
+	.screen-resolver {
+		--type: 'md';
+	}
 }
 
 @screen lg {
-    .screen-resolver {
-        --type: 'lg'
-    }
+	.screen-resolver {
+		--type: 'lg';
+	}
 }
 
 @screen xl {
-    .screen-resolver {
-        --type: 'xl'
-    }
+	.screen-resolver {
+		--type: 'xl';
+	}
 }
 
 @screen 2xl {
-    .screen-resolver {
-        --type: '2xl'
-    }
+	.screen-resolver {
+		--type: '2xl';
+	}
 }

@@ -6,8 +6,14 @@ export const LargeScreen: Breakpoint = 'lg';
 export const ExtraLargeScreen: Breakpoint = 'xl';
 export const ExtraExtraLargeScreen: Breakpoint = '2xl';
 
-const breakpoints = [SmallScreen, MediumScreen, LargeScreen, ExtraLargeScreen, ExtraExtraLargeScreen];
+const breakpoints = [
+	SmallScreen,
+	MediumScreen,
+	LargeScreen,
+	ExtraLargeScreen,
+	ExtraExtraLargeScreen
+];
 
 export function resolveBreakpointForType(type: String) {
-    return breakpoints.find((bp) => type.includes(bp));
+	return breakpoints.find((bp) => type.includes(bp));
 }
