@@ -5,8 +5,8 @@
 	import { onMount } from 'svelte';
 
 	export let hits: HitsSummary;
-	export let highlightTopPages: boolean = false;
-	export let highlightPagesCount: number = 10;
+	export let highlightTopPages = false;
+	export let highlightPagesCount = 10;
 
 	$: totalHitsCount = hits[0].hitsCount;
 	$: hitCountFillPercentage = (hit: PageHitsSummary) => (hit.hitsCount / totalHitsCount) * 100;

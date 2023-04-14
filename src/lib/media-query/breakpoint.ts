@@ -14,6 +14,6 @@ const breakpoints = [
 	ExtraExtraLargeScreen
 ];
 
-export function resolveBreakpointForType(type: String) {
+export function resolveBreakpointForType(type: string) {
 	return breakpoints.find((bp) => type.includes(bp));
 }
