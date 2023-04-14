@@ -20,6 +20,10 @@
 			<VisitorsPercentageSummaryBarChart value={$NolyticsStore.value.visitorsSummary} />
 		</div>
 
-		<PageHitCountTable hits={$NolyticsStore.value.hitsSummary} />
+		<PageHitCountTable
+			hits={$NolyticsStore.value.hitsSummary.slice(0, 10)}
+			highlightTopPages={true}
+			highlightPagesCount={10}
+		/>
 	{/if}
 </body>

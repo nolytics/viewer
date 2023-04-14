@@ -18,7 +18,8 @@ const config = {
 		alias: {
 			'@components': path.resolve('./src/lib/components/index.ts'),
 			'@stores': path.resolve('./src/lib/stores/index.ts'),
-			'@data': path.resolve('./src/lib/data/index.ts')
+			'@data': path.resolve('./src/lib/data/index.ts'),
+			'@media-query': path.resolve('./src/lib/media-query/index.ts')
 		}
 	}
 };
