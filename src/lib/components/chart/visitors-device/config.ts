@@ -1,25 +1,25 @@
-import type { VisitorsSummary } from '@data';
+import type { VisitorsDeviceSummary } from '@data';
 import type { ChartConfiguration, ChartData, ChartType, TooltipItem } from 'chart.js';
 
-export function visitorsPercentageSummaryBarChartConfig(
-	summary: VisitorsSummary
+export function visitorsDeviceSummaryBarChartConfig(
+	summary: VisitorsDeviceSummary,
 ): ChartConfiguration {
 	const stackedSummary = [
 		{
-			count: summary.devices.allMobileVisitorsCount,
-			percentage: summary.devices.allMobileVisitorsPercentage
+			count: summary.allMobileVisitorsCount,
+			percentage: summary.allMobileVisitorsPercentage
 		},
 		{
-			count: summary.devices.allNonMobileVisitorsCount,
-			percentage: summary.devices.allNonMobileVisitorsPercentage
+			count: summary.allNonMobileVisitorsCount,
+			percentage: summary.allNonMobileVisitorsPercentage
 		},
 		{
-			count: summary.devices.uniqueMobileVisitorsCount,
-			percentage: summary.devices.uniqueMobileVisitorsPercentage
+			count: summary.uniqueMobileVisitorsCount,
+			percentage: summary.uniqueMobileVisitorsPercentage
 		},
 		{
-			count: summary.devices.uniqueNonMobileVisitorsCount,
-			percentage: summary.devices.uniqueNonMobileVisitorsPercentage
+			count: summary.uniqueNonMobileVisitorsCount,
+			percentage: summary.uniqueNonMobileVisitorsPercentage
 		}
 	];
 
