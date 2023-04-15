@@ -22,6 +22,6 @@
 </script>
 
 <div class="overflow-hidden text-center h-fit">
-	Percentage of mobile vs non-mobile visitors (all/unique page hits)
+	Visitors per Country
 	<canvas {id} />
 </div>
