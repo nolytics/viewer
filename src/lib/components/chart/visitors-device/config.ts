@@ -2,7 +2,7 @@ import type { VisitorsDeviceSummary } from '@data';
 import type { ChartConfiguration, ChartData, ChartType, TooltipItem } from 'chart.js';
 
 export function visitorsDeviceSummaryBarChartConfig(
-	summary: VisitorsDeviceSummary,
+	summary: VisitorsDeviceSummary
 ): ChartConfiguration {
 	const stackedSummary = [
 		{
