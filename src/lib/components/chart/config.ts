@@ -6,20 +6,20 @@ export function visitorsPercentageSummaryBarChartConfig(
 ): ChartConfiguration {
 	const stackedSummary = [
 		{
-			count: summary.allMobileVisitorsCount,
-			percentage: summary.allMobileVisitorsPercentage
+			count: summary.devices.allMobileVisitorsCount,
+			percentage: summary.devices.allMobileVisitorsPercentage
 		},
 		{
-			count: summary.allNonMobileVisitorsCount,
-			percentage: summary.allNonMobileVisitorsPercentage
+			count: summary.devices.allNonMobileVisitorsCount,
+			percentage: summary.devices.allNonMobileVisitorsPercentage
 		},
 		{
-			count: summary.uniqueMobileVisitorsCount,
-			percentage: summary.uniqueMobileVisitorsPercentage
+			count: summary.devices.uniqueMobileVisitorsCount,
+			percentage: summary.devices.uniqueMobileVisitorsPercentage
 		},
 		{
-			count: summary.uniqueNonMobileVisitorsCount,
-			percentage: summary.uniqueNonMobileVisitorsPercentage
+			count: summary.devices.uniqueNonMobileVisitorsCount,
+			percentage: summary.devices.uniqueNonMobileVisitorsPercentage
 		}
 	];
 
