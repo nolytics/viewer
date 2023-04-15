@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { VisitorsSummary } from '@data';
+	import type { VisitorsDeviceSummary, VisitorsSummary } from '@data';
 	import {
 		Chart,
 		Title,
@@ -11,14 +11,14 @@
 		BarElement
 	} from 'chart.js';
 	import { onMount } from 'svelte';
-	import { visitorsPercentageSummaryBarChartConfig } from './config';
+	import { visitorsDeviceSummaryBarChartConfig } from './config';
 
 	Chart.register(BarController, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
-	export let value: VisitorsSummary;
-	const id = 'visitors-percentage-summary-bar-chart';
+	export let value: VisitorsDeviceSummary;
+	const id = 'visitors-device-summary-bar-chart';
 
-	onMount(() => new Chart(id, visitorsPercentageSummaryBarChartConfig(value)));
+	onMount(() => new Chart(id, visitorsDeviceSummaryBarChartConfig(value)));
 </script>
 
 <div class="overflow-hidden text-center h-fit">

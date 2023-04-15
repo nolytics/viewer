@@ -2,7 +2,8 @@
 	import {
 		MetadataHeader,
 		PageHitCountTable,
-		VisitorsPercentageSummaryBarChart
+		VisitorsCountrySummaryBarChart,
+		VisitorsDeviceSummaryBarChart
 	} from '@components';
 	import { NolyticsStore } from '@stores';
 	import { onMount } from 'svelte';
@@ -16,8 +17,9 @@
 	{#if $NolyticsStore.success}
 		<MetadataHeader value={$NolyticsStore.value.metadata} />
 
-		<div class="flex flex-row justify-center">
-			<VisitorsPercentageSummaryBarChart value={$NolyticsStore.value.visitorsSummary} />
+		<div class="flex flex-col sm:flex-row sm:justify-around">
+			<VisitorsDeviceSummaryBarChart value={$NolyticsStore.value.visitorsSummary.devices} />
+			<VisitorsCountrySummaryBarChart value={$NolyticsStore.value.visitorsSummary.countries} />
 		</div>
 
 		<PageHitCountTable

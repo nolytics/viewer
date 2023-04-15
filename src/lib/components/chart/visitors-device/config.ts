@@ -1,8 +1,8 @@
-import type { VisitorsSummary } from '@data';
+import type { VisitorsDeviceSummary } from '@data';
 import type { ChartConfiguration, ChartData, ChartType, TooltipItem } from 'chart.js';
 
-export function visitorsPercentageSummaryBarChartConfig(
-	summary: VisitorsSummary
+export function visitorsDeviceSummaryBarChartConfig(
+	summary: VisitorsDeviceSummary
 ): ChartConfiguration {
 	const stackedSummary = [
 		{
